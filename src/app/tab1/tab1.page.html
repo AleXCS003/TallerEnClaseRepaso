@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="calculator-title">Calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="calculator-content">
+  <div class="calculator">
+    <ion-input 
+      [(ngModel)]="display" 
+      readonly 
+      class="display"
+      placeholder="0">
+    </ion-input>
+    <div class="buttons">
+      <ion-button 
+        *ngFor="let button of buttons" 
+        (click)="onButtonClick(button)" 
+        class="calc-button" 
+        expand="full">
+        {{ button }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<style>
+  .calculator-content {
+    background-color: #fff3e0; /* Color de fondo suave */
+  }
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffe0b2 30%, #ffcc80 100%);
+  }
+
+  .display {
+    background-color: #ff5722; /* Color naranja oscuro */
+    color: #fff;
+    font-size: 2rem;
+    text-align: right;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .calc-button {
+    background-color: #ff9800; /* Color naranja */
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .calc-button:hover {
+    background-color: #f57c00; /* Naranja más oscuro al pasar el mouse */
+  }
+</style>
